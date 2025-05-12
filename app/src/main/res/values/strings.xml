@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GeoMagneticKpIndex</string>
+    <string name="refresh">refresh data</string>
+    <string name="greetingTxt">To get geo magnetic Kp-index data click on button below...</string>
 </resources>
