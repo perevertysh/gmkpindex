@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">GeoMagneticKpIndex</string>
+    <string name="app_name">GeoMagneticKIndex</string>
     <string name="refresh">refresh data</string>
-    <string name="greetingTxt">To get geo magnetic Kp-index data click on button below...</string>
+    <string name="greetingTxt">To get geo magnetic K-index data click on button below...</string>
+    <string name="noRes">No response...</string>
+    <string name="dateStr">Date</string>
+    <string name="highStr">High latitude</string>
+    <string name="midStr">Middle latitude</string>
+    <string name="estStr">Estimated value</string>
 </resources>

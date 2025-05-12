@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Индекс геомагнитной активности</string>
+    <string name="refresh">Обновить данные</string>
+    <string name="greetingTxt">Чтобы получить данные индекса геомагнитной активности нажмите на кнопку внизу...</string>
+    <string name="no_res">Нет ответа...</string>
+    <string name="noRes">Нет ответа...</string>
+    <string name="dateStr">Дата</string>
+    <string name="highStr">Высокие широты</string>
+    <string name="midStr">Средние широты</string>
+    <string name="estStr">Оценочное значение</string>
+</resources>
