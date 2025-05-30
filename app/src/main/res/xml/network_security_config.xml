@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- FOR TESTS ONLY uncomment>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">0.0.0.0/domain>
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </domain-config>
+    <-->
+</network-security-config>

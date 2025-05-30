@@ -1,4 +1,4 @@
-package com.watbuy.watbuy.com.gmkpindex
+package com.gmkpindex
 
 import android.app.Application
 import android.content.Context
@@ -19,6 +19,6 @@ class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        val context: Context = applicationContext()
+        applicationContext()
     }
 }

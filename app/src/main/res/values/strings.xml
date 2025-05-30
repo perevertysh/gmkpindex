@@ -1,10 +1,67 @@
 <resources>
     <string name="app_name">GeoMagneticKIndex</string>
     <string name="refresh">refresh data</string>
-    <string name="greetingTxt">To get geo magnetic K-index data click on button below...</string>
-    <string name="noRes">No response...</string>
+    <string name="greetingTxt">To get geo magnetic K-index data click on button below…</string>
+    <string name="noRes">No response…</string>
     <string name="dateStr">Date</string>
     <string name="highStr">High latitude</string>
     <string name="midStr">Middle latitude</string>
     <string name="estStr">Estimated value</string>
+    <string name="curIdxValStr">Current K-index value</string>
+    <string name="g0Str">No impact</string>
+    <string name="g1Str"><![CDATA[
+        <p><b>Power systems:</b> Weak power grid fluctuations can occur.</p>
+        <p><b>Spacecraft operations:</b> Minor impact on satellite operations possible.</p>
+        <p><b>Other systems:</b> Migratory animals are affected at this and higher levels;
+        aurora is commonly visible at high latitudes (northern Michigan and Maine).</p>]]>
+    </string>
+    <string name="g2Str"><![CDATA[
+        <p><b>Power systems:</b> High-latitude power systems may experience voltage alarms,
+        long-duration storms may cause transformer damage.</p>
+        <p><b>Spacecraft operations:</b> Corrective actions to orientation may be required by ground
+        control;possible changes in drag affect orbit predictions.</p>
+        <p><b>Other systems:</b> HF radio propagation can fade at higher latitudes, and aurora has
+        been seen as low as New York and Idaho (typically 55° geomagnetic lat.).</p>]]>
+    </string>
+    <string name="g3Str"><![CDATA[
+        <p><b>Power systems:</b> Voltage corrections may be required, false alarms triggered
+        on some protection devices.</p>
+        <p><b>Spacecraft operations:</b> Surface charging may occur on satellite components, drag
+        may increase on low-Earth-orbit satellites, and corrections may be needed for orientation
+        problems.</p>
+        <p><b>Other systems:</b> Intermittent satellite navigation and low-frequency radio
+        navigation problems may occur, HF radio may be intermittent, and aurora has been seen as low
+        as Illinois and Oregon (typically 50° geomagnetic lat.).</p>]]>
+    </string>
+    <string name="g4Str"><![CDATA[
+        <p><b>Power systems:</b> Possible widespread voltage control problems and some protective
+        systems will mistakenly trip out key assets from the grid.</p>
+        <p><b>Spacecraft operations:</b> May experience surface charging and tracking problems,
+            corrections may be needed for orientation problems.</p>
+        <p><b>Other systems:</b> Induced pipeline currents affect preventive measures, HF radio
+            propagation sporadic, satellite navigation degraded for hours, low-frequency radio
+            navigation disrupted, and aurora has been seen as low as Alabama and northern
+            California (typically 45° geomagnetic lat.).</p>]]>
+    </string>
+    <string name="g5Str"><![CDATA[
+        <p><b>Power systems:</b> Widespread voltage control problems and protective system problems
+        can occur, some grid systems may experience complete collapse or blackouts. Transformers
+        may experience damage.</p>
+        <p><b>Spacecraft operations:</b> May experience extensive surface charging, problems with
+            orientation, uplink/downlink and tracking satellites.</p>
+        <p><b>Other systems:</b> Pipeline currents can reach hundreds of amps, HF (high frequency)
+            radio propagation may be impossible in many areas for one to two days, satellite
+            navigation may be degraded for days, low-frequency radio navigation can be out for
+            hours, and aurora has been seen as low as Florida and southern Texas
+            (typically 40° geomagnetic lat.).</p>]]>
+    </string>
+    <string name="minorStr">Minor</string>
+    <string name="info">info</string>
+    <string name="dataProvider">Data source: www.swpc.noaa.gov</string>
+    <string name="dataURL" translatable="false">
+        https://services.swpc.noaa.gov/text/daily-geomagnetic-indices.txt
+    </string>
+    <string name="testDataURL" translatable="false">
+        http://0.0.0.0/noaa-test.txt
+    </string>
 </resources>
