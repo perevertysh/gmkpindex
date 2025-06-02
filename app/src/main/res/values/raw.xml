@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="regexpPattern" translatable="false">^(\\d{4}\\s\\d{2}\\s\\d{2})([-\\d\\s]{23})([-\\d\\s]{23})([-\\.\\d\\s]{55})$</string>
+</resources>

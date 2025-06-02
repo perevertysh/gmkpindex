@@ -2,7 +2,7 @@
 <network-security-config>
     <!-- FOR TESTS ONLY uncomment>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="false">0.0.0.0/domain>
+        <domain includeSubdomains="false">0.0.0.0</domain>
         <trust-anchors>
             <certificates src="system" />
         </trust-anchors>

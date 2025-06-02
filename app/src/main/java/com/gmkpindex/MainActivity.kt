@@ -74,7 +74,9 @@ class MainActivity : ComponentActivity() {
 
     private fun sendGet(view: TextView) {
         val url = URL(resources.getString(R.string.dataURL))
-        var last2Dates: MutableList<String>
+        val noResStr = resources.getString(R.string.noRes)
+        var last2Dates: MutableList<List<String>>
+        var last2DatesData: MutableList<String> = mutableListOf()
         var mainView = this.findViewById<View>(R.id.activityMain)
         var curIdxView = this.findViewById<TextView>(R.id.curIdx)
         var curIdxNameView = this.findViewById<TextView>(R.id.curIdxName)
@@ -88,27 +90,32 @@ class MainActivity : ComponentActivity() {
                         connectTimeout = 10000
                         readTimeout = 10000
                         if (responseCode in 200..299) {
+                            val pattern = resources.getString(R.string.regexpPattern).toRegex()
+
                             val dates: List<String> =
                                 url.readText().split("\n").dropLast(1).toList()
-                            last2Dates = dates.subList(dates.size - 2, dates.size)
-                                .joinToString("    ").split("    ").toMutableList()
-                            last2Dates[0] =
-                                appContext.getString(R.string.dateStr) + ": \n" + last2Dates[0]
-                            last2Dates[4] =
-                                appContext.getString(R.string.dateStr) + ": \n" + last2Dates[4]
-                            last2Dates[1] =
-                                appContext.getString(R.string.midStr) + ": \n" + last2Dates[1]
-                            last2Dates[5] =
-                                appContext.getString(R.string.midStr) + ": \n" + last2Dates[5]
-                            last2Dates[2] =
-                                appContext.getString(R.string.highStr) + ": \n" + last2Dates[2]
-                            last2Dates[6] =
-                                appContext.getString(R.string.highStr) + ": \n" + last2Dates[6]
-                            val prevDateIdxs: String = last2Dates[3]
-                            last2Dates[3] =
-                                appContext.getString(R.string.estStr) + ": \n" + last2Dates[3] + "\n"
+
+                            last2Dates = dates.subList(dates.size - 2, dates.size).map{
+                                    d -> pattern.find(d)?.groupValues?.drop(1)
+                                } as MutableList<List<String>>
+                            val (yesterdayData, todayData) = last2Dates
+
+                            // previous day info
+                            last2DatesData.add(appContext.getString(R.string.dateStr) + ": \n" + yesterdayData[0])
+                            last2DatesData.add(appContext.getString(R.string.midStr) + ": \n" + yesterdayData[1])
+                            last2DatesData.add(appContext.getString(R.string.highStr) + ": \n" + yesterdayData[2])
+                            val prevDateIdxs: String = yesterdayData[3].toString()
+                            last2DatesData.add(appContext.getString(R.string.estStr) + ": \n" + yesterdayData[3] + "\n")
+
+                            // current day info
+                            last2DatesData.add(appContext.getString(R.string.dateStr) + ": \n" + todayData[0])
+                            last2DatesData.add(appContext.getString(R.string.midStr) + ": \n" + todayData[1])
+                            last2DatesData.add(appContext.getString(R.string.highStr) + ": \n" + todayData[2])
+
                             var rippedLastDateIdx: Double = -1.0
-                            for (idx in last2Dates[7].split(" ").asReversed().dropLast(1)) {
+
+                            for (idx in todayData[3].toString()
+                                .split(" ").asReversed().dropLast(1)) {
                                 if (
                                     idx != "-1.00" &&
                                     idx.contains(".")
@@ -130,8 +137,7 @@ class MainActivity : ComponentActivity() {
                                     }
                                 }
                             }
-                            last2Dates[7] =
-                                appContext.getString(R.string.estStr) + ": \n" + last2Dates[7]
+                            last2DatesData.add(appContext.getString(R.string.estStr) + ": \n" + todayData[3])
 
                             var impactScl: ImpactMeta? = impactMap[ImpactEnum.MINOR]
                             impactScl =
@@ -161,8 +167,7 @@ class MainActivity : ComponentActivity() {
                                 }
 
                             withContext(Dispatchers.Main) {
-                                val noResStr = appContext.getString(R.string.noRes)
-                                val dataStr = last2Dates.joinToString("\n")
+                                val dataStr = last2DatesData.joinToString("\n")
                                 if (!dataStr.isEmpty()) {
                                     view.text = dataStr
                                     curIdxView.text = rippedLastDateIdx.toString()
@@ -181,13 +186,14 @@ class MainActivity : ComponentActivity() {
                             }
                         } else {
                             Log.e("HTTP ERROR", url.readText().toString())
+                            view.text = noResStr
                         }
                     }
 
                 } catch (e: Exception) {
                     withContext(Dispatchers.Main) {
-                        Log.e("Error:", e.toString())
-
+                        Log.e("Error:", e.stackTraceToString())
+                        view.text = noResStr
                     }
                 }
             }
