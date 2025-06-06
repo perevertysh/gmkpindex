@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:onClick="rewriteData"
+            android:onClick="refreshData"
             android:text="@string/refresh"
             app:layout_constraintTop_toBottomOf="@+id/dataField"
             tools:ignore="MissingConstraints" />
