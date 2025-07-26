@@ -1,1 +1,1 @@
-The app shows current Kp-index of Earth geomagnetic field. Data brought from NOAA public source file of [the last 30 days observations](https://services.swpc.noaa.gov/text/daily-geomagnetic-indices.txt)
+The app shows current Kp-index of Earth geomagnetic field. Data is taken from NOAA public source file of [the last 30 days observations](https://services.swpc.noaa.gov/text/daily-geomagnetic-indices.txt)
